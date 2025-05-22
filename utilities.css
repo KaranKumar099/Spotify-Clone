@@ -1,0 +1,10 @@
+.invert{
+    filter: invert(1);
+}
+.flex{
+    display: flex;
+}
+.flex-ai-center{
+    display: flex;
+    align-items: center;
+}
