@@ -21,6 +21,16 @@ nav{
     border-radius: 5vh;
     background-color: #2A2A2A;
 }
+.searchBar input{
+    height: 80%;
+    width: 90%;
+    padding: 0 1vw;
+    margin-left: 5px;
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
 .first{
     gap: 1.5vw;
 }
@@ -49,33 +59,58 @@ nav{
     justify-content: center;
 }
 .main{
-    height: calc(100% - 8vh);
+    height: calc(100% - 17vh);
     width: 100%;
     justify-content: space-evenly;
 }
 .left{
-    height: 90%;
-    width: 28.4%;
+    height: 100%;
+    width: 27.5%;
+    padding: 1.8vw;
     color: white;
     background-color: #2A2A2A;
+    border-radius: 8px;
+}
+.sCard{
+    padding: 0.7vw;
+    gap: 1vw;
+    margin-top: 1vw;
+    position: relative;
+}
+.sCard:hover{
+    background-color: rgba(128, 128, 128, 0.218);
+}
+.sCard #more{
+    position: absolute;
+    right: 1vw;
+}
+.sCard #like{
+    position: absolute;
+    right: 3vw;
 }
 .right{
-    height: 90%;
-    width: 70%;
+    height: 100%;
+    width: 71%;
     color: white;
     padding: 2vw;
     background-color: #2A2A2A;
+    border-radius: 8px;
 }
 .trendingSongs{
     gap: 1vw;
-    background-color: cadetblue;
+    margin: 1vw 0;
     overflow-x: scroll;
 }
+.trendingSongs::-webkit-scrollbar{
+    color: transparent;
+}
 .card{
-    background-color: grey;
-    width: 12vw;
+    min-width: 12vw;
     padding: 10px;
     border-radius: 8px;
+}
+.card:hover{
+    background-color: rgba(128, 128, 128, 0.218);
 }
 .card h3{
     font-weight: 200;
@@ -91,4 +126,58 @@ nav{
     width: 100%;
     object-fit: contain;
     border-radius: 10px;
+}
+.popularArtists{
+    gap: 2vw;
+    margin: 1vw 0;
+    overflow-x: scroll;
+}
+.artist{
+    height: 13vw;
+    text-align: center;
+}
+.artist:hover{
+    background-color: rgba(128, 128, 128, 0.218);
+}
+.artist img{
+    height: 11vw;
+    min-width: 11vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.popularArtists::-webkit-scrollbar{
+    color: transparent;
+}
+.bottom{
+    height: 9vh;
+    justify-content: space-between;
+    padding: 0 2vw;
+    background-color: rgb(65, 137, 225);
+}
+.currentlyPlaying{
+    width: 30vw;
+    padding: 0.8vw 1.5vw;
+    gap: 1vw;
+    position: relative;
+}
+.currentlyPlaying:hover{
+    background-color: rgba(128, 128, 128, 0.218);
+}
+.currentlyPlaying .dets{
+    margin-left: 1vw;
+}
+.currentlyPlaying #like{
+    position: absolute;
+    right: 4vw;
+}
+.currentlyPlaying #more{
+    position: absolute;
+    right: 1.5vw;
+}
+#pause{
+    font-size: 40px;
+}
+.controls,
+.player{
+    gap: 1.5vw;
 }
