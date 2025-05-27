@@ -6,20 +6,23 @@
 html,body{
     height: 100%;
     width: 100%;
-    background-color: #000;
+    background-color: #2b2d42;
 }
 nav{
     height: 8vh;
     padding: 0 1vw;
-    background-color: #000;
+    background-color: #2b2d42;
     justify-content: space-between;
+}
+#logo{
+    width: 3vw;
 }
 .searchBar{
     height: 6vh;
     width: 25vw;
     padding-left: 10px;
     border-radius: 5vh;
-    background-color: #2A2A2A;
+    background-color: #8d99ae;
 }
 .searchBar input{
     height: 80%;
@@ -37,7 +40,8 @@ nav{
 .second{
     gap: 1.2vw;
 }
-.second > a,h1{
+.second > a,h1,
+.install a{
     font-size: 18px;
     text-decoration: none;
     color: rgb(199, 199, 199);
@@ -68,32 +72,45 @@ nav{
     width: 27.5%;
     padding: 1.8vw;
     color: white;
-    background-color: #2A2A2A;
+    background-color: #8d99ae;
     border-radius: 8px;
+}
+.library{
+    height: 100%;
+    overflow-y: scroll;
+}
+.library::-webkit-scrollbar{
+    color: transparent;
 }
 .sCard{
     padding: 0.7vw;
     gap: 1vw;
-    margin-top: 1vw;
+    margin-top: 0.8vw;
     position: relative;
 }
-.sCard:hover{
-    background-color: rgba(128, 128, 128, 0.218);
+.sCard h5{
+    display: none;
+    /* visibility: hidden; */
 }
 .sCard #more{
     position: absolute;
     right: 1vw;
+    opacity: 0;
 }
 .sCard #like{
     position: absolute;
     right: 3vw;
+    opacity: 0;
+}
+.sCard:hover{
+    background-color: rgba(128, 128, 128, 0.218);
 }
 .right{
     height: 100%;
     width: 71%;
     color: white;
     padding: 2vw;
-    background-color: #2A2A2A;
+    background-color: #8d99ae;
     border-radius: 8px;
 }
 .trendingSongs{
@@ -106,8 +123,10 @@ nav{
 }
 .card{
     min-width: 12vw;
+    width: 12vw;
     padding: 10px;
     border-radius: 8px;
+    /* background-color: pink; */
 }
 .card:hover{
     background-color: rgba(128, 128, 128, 0.218);
@@ -124,7 +143,8 @@ nav{
 }
 .card img{
     width: 100%;
-    object-fit: contain;
+    height: 10vw;
+    object-fit: cover;
     border-radius: 10px;
 }
 .popularArtists{
@@ -133,8 +153,8 @@ nav{
     overflow-x: scroll;
 }
 .artist{
-    height: 13vw;
     text-align: center;
+        /* background-color: pink; */
 }
 .artist:hover{
     background-color: rgba(128, 128, 128, 0.218);
@@ -142,6 +162,7 @@ nav{
 .artist img{
     height: 11vw;
     min-width: 11vw;
+    width: 11vw;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -152,7 +173,7 @@ nav{
     height: 9vh;
     justify-content: space-between;
     padding: 0 2vw;
-    background-color: rgb(65, 137, 225);
+    background-color: #edf2f4;
 }
 .currentlyPlaying{
     width: 30vw;
@@ -174,7 +195,7 @@ nav{
     position: absolute;
     right: 1.5vw;
 }
-#pause{
+#ppBtn{
     font-size: 40px;
 }
 .controls,
