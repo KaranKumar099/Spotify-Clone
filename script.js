@@ -1,5 +1,3 @@
-console.log("working js");
-
 async function getSongs() {
     const response = await fetch("http://127.0.0.1:5500/songs/");
     const html = await response.text();
@@ -23,27 +21,26 @@ async function main(){
     let card=``;
     let sCard=``;  
     songs.forEach((song,i)=>{
-        let a=song.split("-");
-        let b=a[0].lastIndexOf("/");
-        let c=a[0].substr(b+1);
-        let artist=c.replaceAll("%20"," ").replace("%2C",", ");
+        let arr=song.split("-");
+        let last=arr[0].lastIndexOf("/");
+        let artist=arr[0].substr(last+1).replaceAll("%20"," ").replace("%2C",", ");
         // console.log(i,artist);
-        let d=a[1].indexOf("(");
+        let idx=arr[1].indexOf("(");
         let title;
-        if(d!==-1){
-            let e=a[1].substr(3,d-6);
-            title=e.replaceAll("%20"," ");
+        if(idx!==-1){
+            title=arr[1].substr(3,idx-6).replaceAll("%20"," ");
         }else{
-            let f=a[1].replaceAll("%20"," ");
-            title=f.substr(0,f.length-4).replace("%5B"," ").replace("%5D"," ");
+            let s=arr[1].replaceAll("%20"," ");
+            title=s.substr(0,s.length-4).replace("%5B"," ").replace("%5D"," ");
         }
         title=title.trim(" ");
-        console.log(i,title);
+        // console.log(i,title);
         card+=`<div class="card">
-        <img src="utilities/${title}.jpg" alt="">
-        <h3 id="song">${title}</h3>
-        <h3 id="artists">${artist}</h3>
-    </div>`
+            <h5>${song}</h5>
+            <img src="utilities/${title}.jpg" alt="">
+            <h3 id="song">${title}</h3>
+            <h4 id="artists">${artist}</h4>
+        </div>`
         sCard+=`<div class="sCard flex-ai-center">
                 <h5>${song}</h5>
                 <span class="material-symbols-outlined">library_music</span>
@@ -72,6 +69,7 @@ async function main(){
         })
     })
     let ppBtn=document.querySelector("#ppBtn");
+    let playerDets=document.querySelector(".currentlyPlaying .dets")
     let curSong;
     libItem.forEach((item)=>{
         item.addEventListener("click",()=>{
@@ -79,9 +77,25 @@ async function main(){
                 curSong.pause();
             }
             ppBtn.innerHTML="pause_circle";
-            let comm=item.childNodes[1];
-            console.log(comm.textContent);
-            curSong=new Audio(comm.textContent);
+            playerDets.innerHTML=item.children[2].innerHTML;
+            let address=item.childNodes[1];
+            // console.log(address.textContent);
+            curSong=new Audio(address.textContent);
+            curSong.play();
+        })
+    })
+    let cardItem=document.querySelectorAll(".card");
+    cardItem.forEach((item)=>{
+        item.addEventListener("click",()=>{
+            if(curSong!==undefined){
+                curSong.pause();
+            }
+            ppBtn.innerHTML="pause_circle";
+            playerDets.children[0].textContent=item.children[2].textContent;
+            playerDets.children[1].textContent=item.children[3].textContent;
+            let address=item.childNodes[1];
+            // console.log(address.textContent);
+            curSong=new Audio(address.textContent);
             curSong.play();
         })
     })
@@ -109,4 +123,3 @@ async function main(){
     })
 }
 main()
-
